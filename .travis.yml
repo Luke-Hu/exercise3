@@ -1,5 +1,15 @@
 language: node_js
+sudo: true
 node_js: 
-  - "4"
+  - "6"
 before_install:
   - npm install -g mocha
+addons:
+  chrome: "latest"
+before_script: 
+  - npm test
+after_script:
+  - npm run coverage
+cache:
+  directories:
+    - node_modules
